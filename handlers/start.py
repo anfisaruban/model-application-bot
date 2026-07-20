@@ -67,7 +67,7 @@ async def requirements(callback: CallbackQuery):
 # Формат заявки
 # =====================================================
 
-@router.callback_query(F.data == "application")
+@router.callback_query(F.data == "application_format")
 async def application(callback: CallbackQuery, state: FSMContext):
 
     # Переводим пользователя в режим ожидания заявки
