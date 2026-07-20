@@ -4,4 +4,4 @@ import os
 load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_ID = 6532359096
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
