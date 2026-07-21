@@ -37,16 +37,25 @@ router = Router()
 
 
 # =====================================================
+# Функция приветствия
+# =====================================================
+
+async def send_welcome(message: Message):
+
+    await message.answer(
+        WELCOME_TEXT,
+        reply_markup=welcome_keyboard
+    )
+
+
+# =====================================================
 # /start
 # =====================================================
 
 @router.message(CommandStart())
 async def start(message: Message):
 
-    await message.answer(
-        WELCOME_TEXT,
-        reply_markup=welcome_keyboard
-    )
+    await send_welcome(message)
 
 
 # =====================================================
