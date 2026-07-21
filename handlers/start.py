@@ -214,10 +214,11 @@ async def portraits_examples(callback: CallbackQuery):
 @router.callback_query(F.data == "video_example")
 async def video_example(callback: CallbackQuery):
 
-    await callback.message.answer_document(
-        document=FSInputFile("media/videoexample.mp4"),
-        caption="🎥 Пример видеовизитки"
-    )
+    await callback.message.answer_video(
+    video=FSInputFile("media/videoexample.mp4"),
+    caption="🎥 Пример видеовизитки",
+    supports_streaming=True
+)
 
     await callback.message.answer(
         "Выберите действие:",
