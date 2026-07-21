@@ -29,6 +29,7 @@ from keyboards.menu import (
     back_to_snaps_keyboard,
     back_to_portraits_keyboard,
     back_to_video_keyboard,
+    application_format_keyboard,
 )
 from states import ApplicationState
 
@@ -70,7 +71,20 @@ async def requirements(callback: CallbackQuery):
 @router.callback_query(F.data == "application_format")
 async def application(callback: CallbackQuery, state: FSMContext):
 
-    # Переводим пользователя в режим ожидания заявки
+    await callback.message.edit_text(
+        APPLICATION_FORMAT_TEXT,
+        reply_markup=application_format_keyboard
+    )
+
+    await callback.answer()
+
+# =====================================================
+# Отправить заявку
+# =====================================================
+
+@router.callback_query(F.data == "send_application")
+async def send_application(callback: CallbackQuery, state: FSMContext):
+
     await state.set_state(ApplicationState.waiting_application)
 
     await callback.message.edit_text(
@@ -138,20 +152,6 @@ async def faq(callback: CallbackQuery):
 
     await callback.answer()
 
-
-# =====================================================
-# Отправить заявку
-# =====================================================
-
-@router.callback_query(F.data == "application")
-async def application(callback: CallbackQuery):
-
-    await callback.message.edit_text(
-        APPLICATION_TEXT,
-        reply_markup=back_keyboard
-    )
-
-    await callback.answer()
 
 
 # =====================================================

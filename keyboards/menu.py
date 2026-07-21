@@ -1,14 +1,14 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # ======================================================
-# Первый экран
+# Старт
 # ======================================================
 
 welcome_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="📋 Ознакомиться с требованиями",
+                text="✨ Ознакомиться",
                 callback_data="requirements"
             )
         ]
@@ -29,13 +29,13 @@ requirements_keyboard = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton(
-                text="📸 Как сделать снепы",
+                text="📸 Снепы",
                 callback_data="snaps"
             )
         ],
         [
             InlineKeyboardButton(
-                text="🖼 Требования к портретам",
+                text="🖼 Портреты",
                 callback_data="portraits"
             )
         ],
@@ -50,12 +50,6 @@ requirements_keyboard = InlineKeyboardMarkup(
                 text="❓ FAQ",
                 callback_data="faq"
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="✅ Отправить заявку",
-                callback_data="application"
-            )
         ]
     ]
 )
@@ -68,7 +62,7 @@ snaps_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="👀 Посмотреть примеры",
+                text="📷 Посмотреть примеры",
                 callback_data="snaps_examples"
             )
         ],
@@ -89,7 +83,7 @@ portraits_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="👀 Посмотреть примеры",
+                text="🖼 Посмотреть примеры",
                 callback_data="portraits_examples"
             )
         ],
@@ -101,7 +95,6 @@ portraits_keyboard = InlineKeyboardMarkup(
         ]
     ]
 )
-
 # ======================================================
 # Видео
 # ======================================================
@@ -177,6 +170,27 @@ back_keyboard = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 text="⬅️ Назад к разделам",
+                callback_data="requirements"
+            )
+        ]
+    ]
+)
+
+# ======================================================
+# Кнопки под шаблоном заявки
+# ======================================================
+
+application_format_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="✅ Отправить заявку",
+                callback_data="send_application"
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="⬅️ Назад",
                 callback_data="requirements"
             )
         ]
