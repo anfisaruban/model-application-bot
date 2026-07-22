@@ -224,10 +224,12 @@ async def portraits_examples(callback: CallbackQuery):
 async def video_example(callback: CallbackQuery):
 
     await callback.message.answer_video(
-    video=FSInputFile("media/videoexample.mp4"),
-    caption="🎥 Пример видеовизитки",
-    supports_streaming=True
-)
+        video=FSInputFile("media/videoexample.mp4"),
+        caption="🎥 Пример видеовизитки",
+        supports_streaming=True,
+        width=1072,
+        height=1904,
+    )
 
     await callback.message.answer(
         "Выберите действие:",
@@ -235,5 +237,3 @@ async def video_example(callback: CallbackQuery):
     )
 
     await callback.answer()
-
-
