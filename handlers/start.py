@@ -97,7 +97,7 @@ async def send_application(callback: CallbackQuery, state: FSMContext):
     await state.set_state(ApplicationState.waiting_application)
 
     await callback.message.edit_text(
-        APPLICATION_FORMAT_TEXT,
+        APPLICATION_SEND_TEXT,
         reply_markup=back_keyboard
     )
 
