@@ -16,7 +16,7 @@ from texts import (
     PORTRAITS_TEXT,
     VIDEO_TEXT,
     FAQ_TEXT,
-    APPLICATION_TEXT,
+    APPLICATION_SEND_TEXT,
 )
 
 from keyboards.menu import (
@@ -92,9 +92,7 @@ async def application(callback: CallbackQuery, state: FSMContext):
 # =====================================================
 
 @router.callback_query(F.data == "send_application")
-async def send_application(callback: CallbackQuery, state: FSMContext):
-
-    await state.set_state(ApplicationState.waiting_application)
+async def send_application(callback: CallbackQuery):
 
     await callback.message.edit_text(
         APPLICATION_SEND_TEXT,
@@ -102,7 +100,8 @@ async def send_application(callback: CallbackQuery, state: FSMContext):
     )
 
     await callback.answer()
-
+ 
+    
 # =====================================================
 # Снепы
 # =====================================================
