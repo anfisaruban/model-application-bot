@@ -13,7 +13,7 @@ bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 dp.include_router(start_router)
-dp.include_router(application_router)
+# dp.include_router(application_router)
 dp.include_router(business_router)
 
 
